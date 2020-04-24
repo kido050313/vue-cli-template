@@ -7,6 +7,10 @@ import store from "./store";
 import Highlight from './utils/highlight';
 Vue.use(Highlight);
 
+// 使用mock
+import { mockXHR } from '../mock'
+mockXHR();
+
 Vue.config.productionTip = false;
 
 new Vue({
