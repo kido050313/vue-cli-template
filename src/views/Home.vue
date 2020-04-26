@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div v-highlight>
+      <h1>高亮代码测试</h1>
       <pre>
         <code>
           export default {
@@ -24,15 +25,29 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import { fetchArticle } from '@/api/article' // mock demo
 
 export default {
   name: "Home",
-  data() {
+  data(){
     return {
+
     }
   },
   components: {
     HelloWorld
+  },
+  created(){
+    this.getData()
+  },
+  methods: {
+    getData() {
+      fetchArticle().then(response => {
+        console.log(response.data)
+      }).catch(err => {
+        console.log(err)
+      })
+    },
   }
 };
 </script>
